@@ -1,0 +1,74 @@
+using System;
+
+namespace FirstConsoleProject
+{
+    class MainClass
+    {
+        public static void Main (string[] args)
+        {
+        Start:
+
+            long output;
+
+            Console.WriteLine("Welcome to the Untitled Pokémon Move calculator!" +
+                "\nThis a move that gets stronger the weaker your Pokémon is." +
+            "\nWhat is your Pokémon's species?");
+            string name = Console.ReadLine();
+            Console.WriteLine("Perfect! and what is your " + name + "'s level?");
+            int level = Convert.ToInt32(Console.ReadLine());
+            if (level > 100)
+            {
+                level = 100;
+            }
+
+            else if (level < 1)
+            {
+                level = 1;
+            }
+
+            int levelvar = level / 10;
+
+            int factorialreg = levelvar;
+            long factorial = 1;
+
+            for (int i = factorialreg; i > 0; i--)
+            {
+                factorial = factorial * factorialreg;
+                factorialreg--;
+            }
+            Console.WriteLine("UPM's power before stats are factored in is " + factorial + ".");
+
+            Console.WriteLine("What is your Pokémon's attack stat? " +
+                "\n(If you don't know, google \"" + name + " Smogon\" and click the first link.)");
+            int atk = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("What is your Pokémon's special attack stat?");
+            int spa = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("So your Pokémon is a level " + level + " " + name + " with an attack stat of " + atk + " and a special attack stat of " + spa + "?" +
+                "\nPress 1 to confirm.");
+            int conf = Convert.ToInt32(Console.ReadLine());
+
+            if (conf == 1)
+            {
+                Console.WriteLine("Calculating UPM's power output...");
+                int median = atk + spa / 2;
+                output = factorial / median / 100;
+                Console.WriteLine("UPM's damage output will be " + output + ". This move bypasses the enemy's defense stat." +
+                    "\nPress any key to start again.");
+                Console.ReadKey();
+                Console.WriteLine("\n \n");
+                goto Start;
+            }
+
+            else
+            {
+                Console.WriteLine("Let's start again.");
+                Console.WriteLine("\n \n");
+                goto Start;
+            }
+
+            Console.ReadKey();
+        }
+    }
+}
+
