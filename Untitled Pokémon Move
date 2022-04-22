@@ -52,7 +52,7 @@ namespace FirstConsoleProject
             {
                 Console.WriteLine("Calculating UPM's power output...");
                 int median = atk + spa / 2;
-                output = factorial / median / 100;
+                output = factorial / median / 200;
                 Console.WriteLine("UPM's damage output will be " + output + ". This move bypasses the enemy's defense stat." +
                     "\nPress any key to start again.");
                 Console.ReadKey();
